@@ -32,7 +32,7 @@ class _AhadethTabState extends State<AhadethTab> {
           color: Color(0xFFB7935F),
         ),
         Text(
-          "Ahadeth",
+          "ahadeth",
           textAlign: TextAlign.center,
           style: GoogleFonts.elMessiri(
             fontSize: 25,
