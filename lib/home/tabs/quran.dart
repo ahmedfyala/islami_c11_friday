@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -139,7 +140,7 @@ class QuranTab extends StatelessWidget {
           thickness: 3,
         ),
         Text(
-          "Sura Names",
+          "sura_name".tr(),
           textAlign: TextAlign.center,
           style: Theme.of(context).textTheme.bodyMedium,
         ),

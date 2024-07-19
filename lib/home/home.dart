@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:islami_c11_friday/home/tabs/ahadeth.dart';
@@ -36,7 +37,8 @@ class _HomeScreenState extends State<HomeScreen> {
         Scaffold(
           backgroundColor: Colors.transparent,
           appBar: AppBar(
-            title: Text("Islami", style: Theme.of(context).textTheme.bodyLarge),
+            title: Text("islami".tr(),
+                style: Theme.of(context).textTheme.bodyLarge),
           ),
           bottomNavigationBar: BottomNavigationBar(
               currentIndex: selectedIndex,
