@@ -7,20 +7,20 @@ import 'package:islami_c11_friday/providers/my_provider.dart';
 import 'package:islami_c11_friday/sura_details.dart';
 import 'package:provider/provider.dart';
 
-
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await EasyLocalization.ensureInitialized();
-  runApp(MultiProvider(providers: [
-    ChangeNotifierProvider(
-      create: (context) => MyProvider(),
-    ),
-
-  ], child: EasyLocalization(
-      supportedLocales: [Locale('en'), Locale('ar')],
-      path: 'assets/translations',
-      saveLocale: true, // <-- change the path of the translation files
-      child: const MyApp())));
+  runApp(MultiProvider(
+      providers: [
+        ChangeNotifierProvider(
+          create: (context) => MyProvider()..getTheme(),
+        ),
+      ],
+      child: EasyLocalization(
+          supportedLocales: [Locale('en'), Locale('ar')],
+          path: 'assets/translations',
+          saveLocale: true, // <-- change the path of the translation files
+          child: const MyApp())));
 }
 
 class MyApp extends StatelessWidget {
@@ -28,13 +28,12 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var provider = Provider.of<MyProvider>(context);
+    var provider = Provider.of<MyProvider>(context)..getTheme();
 
     return MaterialApp(
       localizationsDelegates: context.localizationDelegates,
       supportedLocales: context.supportedLocales,
       locale: context.locale,
-
       debugShowCheckedModeBanner: false,
       themeMode: Provider.of<MyProvider>(context).mode,
       theme: MyThemeData.lightTheme,
